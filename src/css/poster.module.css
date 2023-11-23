@@ -1,0 +1,68 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.poster{
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  background-color: #fbc531;
+}
+.poster>.content{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   align-items: start;
+}
+.poster>.posterImg{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+}
+.poster>.posterImg>img{
+width: 100%;
+height: 100%;
+}
+.poster>.content>h1{
+ color:black;
+ font-size: 5vw;
+ font-weight: 800;
+}
+.poster>.content>h5{
+font-family: 'Amatic SC', cursive;
+    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+font-size: 2vw;
+}
+.poster>.content>.square{
+    display:flex ;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 12vw;
+    height: 22vh;
+}
+.poster>.content>.square>img{
+    width: 100%;
+    height: 100%;
+}
+/* -----------------responsive----------- */
+@media (max-width:600px) {
+.poster {
+        height: 50vh;
+    }
+        .poster>.content>.square { 
+            width: 30vw;
+            height: 18vh;
+        }
+   
+}

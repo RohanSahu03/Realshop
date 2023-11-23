@@ -1,0 +1,145 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Alef', sans-serif;
+}
+.mainBody{
+   
+    display: flex;
+    justify-content: center;
+    height: auto;
+    
+}
+.productOuterDiv {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    width: 70%;
+    height: 100%;
+    min-height: 200px;
+ 
+
+}
+.filterDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content:center ;
+    width: 25%;
+    height: 100%;
+    background-color: rgb(222, 217, 213);
+    margin: 10px;
+    border: 1px solid #ccc5c5;
+    border-radius: 4px;
+    
+}
+.filterDiv>button,.filterDiv>select{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    height: 5vh;
+    width: 98%;
+    flex-wrap: wrap;
+}
+.productInnerDiv {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 120px;
+    height:180px;
+    text-decoration: none;
+    margin: 10px;
+    
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    background-color:papayawhip;
+    width:100%;
+    height: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-sizing: border-box;
+    padding: 5px;
+    text-decoration: none;
+}
+.cardimg{
+    width: 99%;
+    height:70%;
+    background-size: cover;
+}
+.cardBody{
+    width: 99%;
+    height: 30%;
+ background-color: #ffffff;
+ display: flex;
+ flex-direction: column;
+}
+.brand{
+    font-size: 11px;
+    font-weight: 600;
+    padding: 0%;
+    color: black;
+    height: 10%;
+}
+.description{
+    font-size: 10px;
+    color: black;
+    padding: 0%;
+    height: 25%;
+}
+.price{
+    font-size: 10px;
+    font-weight: 600;
+    padding: 0%;
+    margin: 0%;
+    color: black;
+    height: 25%;
+}
+
+.cardImg:hover{
+   opacity: 0.8;
+}
+
+
+.productimg{
+   width: 15%;
+    height: 300px;
+    padding-top: 70px;
+}
+.productimg>img{
+    width: 100%;
+    border-radius: 3px;
+    box-shadow: 2px 2px 5px rgb(62, 4, 4);
+}
+
+.notFound{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 500px;
+    height: 300px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+/* -----------------responsive----------- */
+
+ @media (max-width:600px) {
+    .filterDiv{
+        width: 40%;
+
+    }
+        .filterDiv>button,
+        .filterDiv>select {
+            height: 4vh;
+            flex-wrap: wrap;
+        }
+ }
+
+

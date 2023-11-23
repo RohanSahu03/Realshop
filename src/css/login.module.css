@@ -1,0 +1,40 @@
+.container{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    height: 100vh;
+
+}
+.forDesign{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+}
+.innerContainer{
+    display: flex;
+    justify-content: start;
+        align-items: center;
+        flex-direction: column;
+        width: 28%;
+        height: 80%;
+        background-color: rgb(184, 181, 181);
+        border-radius: 4px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border: 1px solid #ccc5c5;
+        margin-top: 40px;
+}
+.innerContainer>img{
+    border-radius: 4px 4px 0 0;
+    width: 100%;
+    height: 40%;
+}
+
+.sideDiv{
+    width: 10%;
+    height: 100%;
+    background-color: rgb(130, 208, 182);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    outline: none;
+}

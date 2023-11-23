@@ -1,0 +1,50 @@
+.outerDiv{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 200px;
+    background-color: #192a56;
+    color: rgb(243, 238, 238);
+}
+.innerDiv{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    width: 80%;
+    height: 70%;
+    font-size: 11px;
+}
+.addressSection{
+    display: flex;
+    flex-direction: column;
+}
+table>tr{
+    font-size: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.hrLine{
+    width: 100%;
+    height: 0.2px;
+   background-color: rgb(216, 221, 225);
+}
+.copyRight{
+    width: 70%;
+    font-size: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: yellowgreen;
+    display: flex;
+    justify-content: space-around;
+   margin-top: 15px;
+
+}
+
+/* -----------------responsive----------- */
+@media (max-width:600px) {
+.innerDiv{
+    width: 100%;
+    height: 90%;
+}
+
+}

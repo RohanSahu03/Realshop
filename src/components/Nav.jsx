@@ -1,16 +1,15 @@
 import React, { useContext,useState} from 'react'
-import { FaShoppingCart } from 'react-icons/fa'
-import { BiMenu } from 'react-icons/bi'
-import { CgProfile } from 'react-icons/cg'
+import { FiShoppingCart } from 'react-icons/fi'
+import { BiMenu, BiUserCircle } from 'react-icons/bi'
+
 import {Link} from 'react-router-dom'
 import style from '../css/nav.module.css'
-import { ProductContext } from './context/ProductContext';
 import { CartContext } from './context/CartContext';
 import { Button,Modal,ModalHeader, ModalBody, } from 'reactstrap';
 
 function Nav() {
 
-    const { updateSearchTerm,searchTerm}=useContext(ProductContext)
+    
     
     const {cartItems} =useContext(CartContext)
 
@@ -35,27 +34,21 @@ function Nav() {
                           <li><a href="">
                               <img className={style.logo} src={`real-shop.png`} alt="logo"  />
                           </a></li>
-                          <li> <Link to='/' >Home</Link></li>
-                          <li> <Link to='/'>Mobile</Link></li>
-                          <li><Link to='/'>Headphone</Link></li>
-                          <li><Link to='/'>Bag</Link></li>
-                          <li><Link to='/'>T-shirt</Link></li>
+                          <li> <Link to='/' >HOME</Link></li>
+                          <li> <Link to='/'>MOBILE</Link></li>
+                          <li><Link to='/'>HEADPHONE</Link></li>
+                          <li><Link to='/'>BAG</Link></li>
+                          <li><Link to='/'>T-SHIRT</Link></li>
                       </ol>
 
                   </div>
 
                   <div className={style.rightside}>
-                      <div className={style.search}>
-                          <div className={style.searchbox}>
-                              <input type="search" placeholder="Search" id="searchField" autoComplete="off" value={searchTerm}
-                                  onChange={(e) => updateSearchTerm(e.target.value)} />
-                            </div>
-                      </div>
 
                       <div className={style.profile}>
-                          <Link className={`${style.profileLogo}`} id="toggler" onClick={toggle} ><CgProfile /> </Link> 
+                          <Link  id="toggler" onClick={toggle} style={{ fontSize: '22px' }} ><BiUserCircle /> </Link> 
                           <Modal isOpen={modal} toggle={toggle} className={style.model} >
-                              <ModalHeader toggle={toggle} className={style.modelHeader}><CgProfile /> Profile </ModalHeader>
+                              <ModalHeader toggle={toggle} className={style.modelHeader} style={{ fontSize: '14px' }}><BiUserCircle /> Profile </ModalHeader>
                               <ModalBody className={style.modelBody}>
                                  
                                           <div className="udetails">
@@ -73,14 +66,14 @@ function Nav() {
                      </div>
                        
                       <div className={style.profile}>
-                          <Link to='/addToCart' className={`${style.profileLogo}`} > <FaShoppingCart> </FaShoppingCart></Link>
+                          <Link to='/addToCart'  style={{fontSize:'20px'}}> <FiShoppingCart> </FiShoppingCart></Link>
                          
                       </div>
-                      <div className={style.login}>
+                      <div className={style.profile}>
                                       <Link to='/login' >Login</Link>
                       </div>
-                      <div className={style.login}>
-                          <Link to='/register' >Register</Link>
+                      <div className={style.profile}>
+                          <Link to='/register' >Sign up</Link>
                       </div>
 
                       <div className={style.categoryIcon}>
@@ -97,18 +90,15 @@ function Nav() {
                                   <Link to='/' style={{ color: 'white', textDecoration: 'none' }}>Home</Link>
                               </div>
                           </li>
-                          <li> <Link className={`${style.profileLogo}`} id="toggler" onClick={toggle} ><CgProfile /> Profile </Link> </li>
-                          <li> <Link to='/addToCart' className={`${style.profileLogo}`} > <FaShoppingCart/> Cart </Link></li>
+                          <li> <Link className={`${style.profileLogo}`} id="toggler" onClick={toggle} ><BiUserCircle /> Profile </Link> </li>
+                          <li> <Link to='/addToCart' className={`${style.profileLogo}`} > <FiShoppingCart/> Cart </Link></li>
                           <li>
                               <div className={style.login}>
                                               <Link  style={{ color: 'white', textDecoration: 'none' }}>Login</Link>
                               </div>
                           </li>
                           <li>
-                              <div className={style.searchbox}>
-                                  <input type="search" placeholder="Search" id="searchField" autoComplete="off" value={searchTerm}
-                                      onChange={(e) => updateSearchTerm(e.target.value)} />
-                              </div>
+                             
                           </li>
                       </ul>
                   </div>

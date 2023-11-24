@@ -1,15 +1,15 @@
 import React from 'react'
 import ProductList from './ProductList'
-import Poster from './Poster'
+import CarouselCompo from './CarouselCompo'
+
+
 
 
 function Home() {
   return (
     <div>
        
-          {/* <Carousel/> */}
-
-       <Poster />
+      <CarouselCompo/>
       <ProductList />
            
      </div>

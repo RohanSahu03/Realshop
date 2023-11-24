@@ -5,6 +5,7 @@ import { ProductContext } from './context/ProductContext'
 import Filter from './Filter';
 import Button from './Button';
 import { BsCurrencyRupee, BsFillBagPlusFill } from 'react-icons/bs'
+import { PiSmileySadLight } from 'react-icons/pi'
 import StarRating from './StarRating';
 
 function ProductList() {
@@ -60,7 +61,7 @@ getData()
         <>
         <div className={style.notFound}>
             <h5>Product Not Found</h5>
-            <p>enjoy your shopping...</p>
+                    <p><PiSmileySadLight /></p>
             <Button value={'view products'} />
         </div>
         </>

@@ -4,7 +4,7 @@ import style from '../css/productList.module.css'
 import { ProductContext } from './context/ProductContext'
 import Filter from './Filter';
 import Button from './Button';
-import { BsCurrencyRupee, BsFillBagPlusFill } from 'react-icons/bs'
+import { BsCurrencyRupee } from 'react-icons/bs'
 import { PiSmileySadLight } from 'react-icons/pi'
 import StarRating from './StarRating';
 
@@ -34,7 +34,8 @@ getData()
                       <div className={`card-title  ${style.brand}`}>{item.title}</div>
                         <StarRating star={item.rating} review={item.review} />
                       <div className={`card-text ${style.description}`}>{item.description}</div>
-                      <div className={` ${style.price}`}><BsCurrencyRupee />{item.price}  <BsFillBagPlusFill style={{ fontSize: '12px' }} /></div>
+                      <br />
+                      <div className={` ${style.price}`}><BsCurrencyRupee />{item.price} </div>
         
                     </div>
                   </Link>
@@ -50,7 +51,8 @@ getData()
                 <div className={`card-title ${style.brand}`}>{data.title}</div>
                 <StarRating star={data.rating} review={data.review} />
                 <div className={`card-text ${style.description}`}>{data.description}</div>
-                <div className={` ${style.price}`}><pre><BsCurrencyRupee />{data.price}   <BsFillBagPlusFill style={{ fontSize: '12px' }} /></pre></div>
+                <br />
+                <div className={` ${style.price}`}><pre><BsCurrencyRupee />{data.price}  </pre></div>
                 
 
               </div>

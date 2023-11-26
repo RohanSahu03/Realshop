@@ -8,7 +8,7 @@ import { Button } from 'reactstrap';
 function Filter() {
   const { filterProducts, filterByPrice, sortProducts, maxPrice, clearFilter, updateSearchTerm, searchTerm } = useContext(ProductContext);
 
-    const [amt,setAmt]=useState(maxPrice)
+    const [amt,setAmt]=useState(60000)
   const handleSorting = (event) => {
     sortProducts(event.target.value)
   }

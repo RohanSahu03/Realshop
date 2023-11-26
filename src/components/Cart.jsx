@@ -14,24 +14,9 @@ import { BsCurrencyRupee } from 'react-icons/bs'
 function Cart() {
     const { cartItems, removeFromCart } = useContext(CartContext);
 
-    const [productCount, setProductCount] = useState([
-        { id: 1, count: 1 },
-        { id: 2, count: 1 },
-        { id: 3, count: 1 },
-        { id: 4, count: 1 },
-        { id: 5, count: 1 },
-        { id: 6, count: 1 },
-        { id: 7, count: 1 },
-        { id: 8, count: 1 },
-        { id: 9, count: 1 },
-       
-    ])
-
     const [modal, setModal] = useState(false);
 
     const toggle = () => setModal(!modal);
-    const [amount, setAmount] = useState(1)
-
     let holderName =useRef()
     let cardNumber = useRef()
     let cvvNumber = useRef()
@@ -67,26 +52,29 @@ function Cart() {
         background: "blue",
        
     }
-    
+  
      const setDecrease = (itemId) => {
       cartItems.map((item)=>{
         if (item.id === itemId){
-          if(amount > 1){
-            setAmount(amount-1)
+            if (item.quantity > 1){
+              item.quantity = item.quantity - 1
+                item.subtotal = item.subtotal-item.price
           }
           else{
-           setAmount(1)
+                item.quantity=1
           }
         }
       })
   }
 
     const setIncrease = (itemId) => {
+    
         cartItems.map((item) => {
             if (item.id === itemId) {
                 if (item.quantity < item.stock) {
                    item.quantity= item.quantity + 1
                    item.subtotal= item.quantity * item.price
+                  
                 }
                 else {
                     item.quantity=item.stock
@@ -101,7 +89,7 @@ function Cart() {
     };
 
     const totalPrice = cartItems.reduce(
-        (accumulator, item) => accumulator + item.price*cartItems.length,
+        (accumulator, item) => accumulator + item.subtotal,
         0
     );
     
@@ -151,7 +139,7 @@ function Cart() {
                                                     
                                                         {/* <CartAmountToggle stock={item.stock} id={item.id} dataFromChild={subTotalFromChild}/> */}
                                                         <div className="amountToggle" style={mystyle}>
-                                                            <button onClick={() => setDecrease(item.id)} style={mybtn}>-</button>
+                                                                <button onClick={() => setDecrease(item.id)} style={mybtn}>-</button>
 
                                                             <div style={{ marginLeft: '10px', marginRight: '10px' }}>{item.quantity}</div>
                                                             <button onClick={() => setIncrease(item.id)} style={mybtn}>+</button>
@@ -198,6 +186,11 @@ function Cart() {
                                                 <tr>
                                                     <td>Total Product Price</td>
                                                     <td><BsCurrencyRupee/>{totalPrice}                                                     
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Delivery Charge</td>
+                                                    <td><BsCurrencyRupee />{0.00}
                                                     </td>
                                                 </tr>
 

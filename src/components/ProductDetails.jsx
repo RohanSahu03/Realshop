@@ -23,7 +23,7 @@ const [product,setProduct]=useState({})
   };
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/product/${pid}`)
+    axios.get(`https://realshop-product-api.onrender.com/product/${pid}`)
       .then(resp => {
 
         setProduct(resp.data)
@@ -43,7 +43,6 @@ const [product,setProduct]=useState({})
               </div>
             <div className={`${style.btn}`}>
               <Link to='/addToCart' className={`${style.cartbtn}`} onClick={handleAddToCart}>Add To Cart</Link>
-              <Link to='/buy'  className={`${style.buybtn}`}>Buy</Link>
               </div>
           </div>
           <div className={`${style.details}`}>

@@ -35,7 +35,7 @@
     border: 1px solid #ccc5c5;
     border-radius: 4px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12), 0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.20);
-    
+   
 }
 .filterDiv>button,.filterDiv>select{
     display: flex;
@@ -51,8 +51,8 @@
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    width: 120px;
-    height:180px;
+    width: 150px;
+    height:250px;
     text-decoration: none;
     margin: 10px;
     
@@ -82,14 +82,14 @@
  flex-direction: column;
 }
 .brand{
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 600;
     padding: 0%;
     color: black;
     height: 10%;
 }
 .description{
-    font-size: 10px;
+    font-size: 12px;
     color: black;
     padding: 0%;
     height: 25%;
@@ -107,15 +107,16 @@
     border-bottom: 1px solid rgba(57, 52, 52, 0.6);
 }
 .price{
-    font-size: 10px;
+    font-size: 13px;
     font-weight: 600;
     padding: 0%;
-    margin: 0%;
     color: black;
-    height: 25%;
 }
 input[type="range"]{
     width: 65%;
+}
+.cardImg{
+    border-radius: 0px;
 }
 .cardImg:hover{
    opacity: 0.8;

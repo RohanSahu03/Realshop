@@ -1,15 +1,23 @@
 import React, { useContext,useState} from 'react'
 import { FiShoppingCart } from 'react-icons/fi'
 import { BiMenu, BiUserCircle } from 'react-icons/bi'
-
+import { useNavigate } from 'react-router-dom'
 import {Link} from 'react-router-dom'
 import style from '../css/nav.module.css'
 import { CartContext } from './context/CartContext';
 import { Button,Modal,ModalHeader, ModalBody, } from 'reactstrap';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Nav() {
-
-    
+    const navigate = useNavigate()
+    const logout=()=>{
+        localStorage.removeItem('user')
+        toast('you are logged out')
+        setTimeout(()=>{
+            navigate('/login')
+        },4000)
+    }
     
     const {cartItems} =useContext(CartContext)
 
@@ -30,6 +38,7 @@ function Nav() {
               <article>
 
                   <div className={style.menu}>
+                    <ToastContainer/>
                       <ol>
                           <li><a href="">
                               <img className={style.logo} src={`real-shop.png`} alt="logo"  />
@@ -70,7 +79,10 @@ function Nav() {
                          
                       </div>
                       <div className={style.profile}>
-                                      <Link to='/login' >Login</Link>
+                        {
+                              JSON.parse(localStorage.getItem('user')) == null ? (<Link to='/login' >Login</Link>) : (<Link onClick={logout} >Logout</Link>)
+                        }
+                                     
                       </div>
                       <div className={style.profile}>
                           <Link to='/register' >Sign up</Link>
@@ -94,7 +106,10 @@ function Nav() {
                           <li> <Link to='/addToCart' className={`${style.profileLogo}`} > <FiShoppingCart/> Cart </Link></li>
                           <li>
                               <div className={style.login}>
-                                              <Link  style={{ color: 'white', textDecoration: 'none' }}>Login</Link>
+                                  {
+                                      JSON.parse(localStorage.getItem('user')) == null ? (<Link to='/login' style={{ color: 'white', textDecoration: 'none' }}>Login</Link>) : (<Link to='/logout' style={{ color: 'white', textDecoration: 'none' }}>Logout</Link>)
+                                  }
+                                              
                               </div>
                           </li>
                           <li>

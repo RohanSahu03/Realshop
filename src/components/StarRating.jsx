@@ -4,9 +4,9 @@ import { FaStar, FaStarHalfAlt } from 'react-icons/fa'
 
 function StarRating({star,review}) {
  const myStyle={
-    fontSize:"9px",
+    fontSize:"11px",
     color:'brown',
-
+    marginTop:'5px'
  }
 
 

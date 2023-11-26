@@ -13,7 +13,7 @@ const navigate=useNavigate()
    function handleLogin(e){
     e.preventDefault()
 if(validate()){
-  axios.get('http://localhost:3000/user/', {
+  axios.get('https://realshop-product-api.onrender.com/user/', {
          params: {
            phone: phone,
            password: password
@@ -23,84 +23,17 @@ if(validate()){
           toast("enter valid details")
         }
         else{
+          localStorage.setItem('user',JSON.stringify(resp.data))
+          toast('you are logged in')
+             setTimeout(() => {
+               navigate('/')
+             },4000);
              
-              navigate('/')
-          alert("you are logged in")
-          
         }
       })
     }
   }
-  //    if(validate()){
-  //      axios.get('http://localhost:3000/user', {
-  //        params: {
-  //          phone: phone,
-  //          password: password
-  //        }
-  //      })
-  //      .then(resp => {
-  //        setItem(resp.data)
-  //        console.log(resp.data);
-  //        console.log(item);
-  //        const count=0
-  //        item.map((userData)=>{
-  //          if(userData.phone===phone && userData.password===password){
-  //          alert(userData.phone)
-  //            count++
-  //          }
-  //        })
-  //        if(count>0){
-  //         toast("you are logged in")
-  //          navigate('/')
-  //        }
-  //        else{
-  //          toast("inter valid credentials")
-  //          toast(count)
-  //        }
-  //      })
-  //      .catch(err => console.log(err))
-  //   }
   
-  // }
-
-      // .then(resp => {
-      //   setItem(resp.data)
-      //   console.log(item);
-      //   let count=0
-      //   item.map((userData)=>{
-      //     if(userData.phone===phone && userData.password===password){
-      //       count++
-      //     }
-      //   })
-      //   if(count===1){
-      //     alert("logged in")
-      //     navigate('/')
-      //   }
-      //   else{
-      //     alert("enter valid credentials")
-      //   }
-      // })
-      // .catch(err => console.log(err))
-    // if(validate()){
-    //   axios.get('http://localhost:3000/user/' + phone).then((res) => {
-        
-    //     console.log(res)
-    //   }).then((resp)=>{
-    //     if(Object.keys(resp).length===0){
-    //       alert("please enter valid username")
-    //     }
-    //     else{
-    //       if(resp.password===password){
-    //           alert("you are logged in")
-    //           navigate('/')
-    //       }else{
-    //         alert("please enter valid credentials")
-    //       }
-    //     }
-    //   })
-    // }
-  
-
   const validate=()=>{
     let result = true;
     if(phone===''||phone===null||phone.length!==10){
@@ -126,6 +59,7 @@ if(validate()){
             <img src="https://images.meesho.com/images/marketing/1661417516766.webp" width="433" height="200" className="lazyload AuthWrapperstyled__StyledPerfImage-sc-1plclw5-9 dSvYWd" alt="banner" />
           <br />
           <br />
+          <h4>Sign in</h4>
           <br />
             <form onSubmit={handleLogin}>
           <div className="input-group input-group-sm mb-3 px-3">
@@ -138,6 +72,8 @@ if(validate()){
           </div>
           <button type="submit" className="btn btn-primary btn-sm px-5" >Login</button>
           </form>
+          <br />
+          <a href="/register">click here to register</a>
         </div>
         <div className={`${style.sideDiv}`}></div>
         </div>

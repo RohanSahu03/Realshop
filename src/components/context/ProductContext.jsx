@@ -41,8 +41,9 @@ export const ProductProvider = ({ children }) => {
     };
 
     const filterByPrice=(filter)=>{
-      filteredPrice =  products.filter((product)=> product.price <= parseInt(filter)
-       )
+     
+            filteredPrice = products.filter((product) => product.price <= parseInt(filter))
+    
         setFilteredProducts(filteredPrice)
     }
 
@@ -75,7 +76,7 @@ export const ProductProvider = ({ children }) => {
     }
 
     const getData=()=>{
-        axios.get('http://localhost:3000/product',{
+        axios.get('https://realshop-product-api.onrender.com/product',{
             headers:{
                 Accept:'application/json'
             }

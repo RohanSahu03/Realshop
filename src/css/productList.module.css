@@ -103,7 +103,7 @@
     padding: 0 28px 0 0px;
     border-radius: 0;
     background: none;
-    font-size: 1.2vw;
+    font-size: 14px;
     border-bottom: 1px solid rgba(57, 52, 52, 0.6);
 }
 .price{
@@ -148,6 +148,7 @@ input[type="range"]{
     font-size: 35px;
 }
 
+
 /* -----------------responsive----------- */
 
  @media (max-width:600px) {
@@ -160,6 +161,39 @@ input[type="range"]{
             height: 4vh;
             flex-wrap: wrap;
         }
+
  }
+
+  @media (width <=780px) {
+    .filterDiv>button,
+        .filterDiv>select{
+            width: 80%;
+            font-size: 12px;
+        }
+        .searchbox>input{
+            font-size: 12px;
+            width: 80%;
+        }
+                
+  }
+  @media (width <= 560px){
+    .mainBody{
+        flex-direction: column;
+    }
+    .filterDiv{
+        display: none;
+    }
+        .productOuterDiv {
+            width: 100%;
+        }
+  }
+  @media (width > 560px){
+    .outerlayer{
+        display: none;
+    }
+  }
+
+
+
 
 

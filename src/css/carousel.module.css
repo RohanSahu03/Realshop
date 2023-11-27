@@ -8,6 +8,7 @@
     height: 450px;
     margin-top: 10px;
     margin-bottom: 10px;
+    z-index: -1;
 }
 img{
     width: 80%;
@@ -18,5 +19,13 @@ img{
     color: black;
 }
 
+@media (width <=600px) {
+.carousel{
+    height: 300px;
+}
+img{
+    height: 300px;
+}
+}
 
 

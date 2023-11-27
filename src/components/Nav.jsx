@@ -18,13 +18,17 @@ function Nav() {
             navigate('/login')
         },4000)
     }
-    
+  
     const {cartItems} =useContext(CartContext)
 
     const [modal, setModal] = useState(false);
 
-    const toggle = () => setModal(!modal);
-
+    const toggle = () =>{ 
+        setModal(!modal);    
+    } 
+    function collpseMenu(){
+        setIsActive(current => !current)
+    }
     const [isActive, setIsActive] = useState(false)
 
     function showMenu() {
@@ -43,11 +47,7 @@ function Nav() {
                           <li><a href="">
                               <img className={style.logo} src={`real-shop.png`} alt="logo"  />
                           </a></li>
-                          <li> <Link to='/' >HOME</Link></li>
-                          <li> <Link to='/'>MOBILE</Link></li>
-                          <li><Link to='/'>HEADPHONE</Link></li>
-                          <li><Link to='/'>BAG</Link></li>
-                          <li><Link to='/'>T-SHIRT</Link></li>
+                         
                       </ol>
 
                   </div>
@@ -61,8 +61,11 @@ function Nav() {
                               <ModalBody className={style.modelBody}>
                                  
                                           <div className="udetails">
-                                              Hii 
-                                              Enjoy your shopping
+                                           
+                                                  Hii,
+                                                  <br />
+                                                  Enjoy your shopping
+                                         
                                            <br />
                                               <Button color="secondary" onClick={toggle}>
                                                   Cancel
@@ -89,7 +92,7 @@ function Nav() {
                       </div>
 
                       <div className={style.categoryIcon}>
-                          <BiMenu style={{ float: 'right', fontSize: '25px',color:'white',marginRight:'15px' }} onClick={showMenu} />
+                          <BiMenu style={{ float: 'right', fontSize: '25px',color:'white',marginLeft:'50px' }} onClick={showMenu} />
                       </div>
                   </div>
   
@@ -98,16 +101,16 @@ function Nav() {
                   }}>
                       <ul>
                           <li>
-                              <div className={style.login}>
-                                  <Link to='/' style={{ color: 'white', textDecoration: 'none' }}>Home</Link>
-                              </div>
+                             
+                                  <Link to='/' className={`${style.home}`} style={{ color: 'white', textDecoration: 'none' }} onClick={collpseMenu}>Home</Link>
+                            
                           </li>
                           <li> <Link className={`${style.profileLogo}`} id="toggler" onClick={toggle} ><BiUserCircle /> Profile </Link> </li>
-                          <li> <Link to='/addToCart' className={`${style.profileLogo}`} > <FiShoppingCart/> Cart </Link></li>
+                          <li> <Link to='/addToCart' className={`${style.profileLogo}`} onClick={collpseMenu}> <FiShoppingCart/> Cart </Link></li>
                           <li>
                               <div className={style.login}>
                                   {
-                                      JSON.parse(localStorage.getItem('user')) == null ? (<Link to='/login' style={{ color: 'white', textDecoration: 'none' }}>Login</Link>) : (<Link to='/logout' style={{ color: 'white', textDecoration: 'none' }}>Logout</Link>)
+                                      JSON.parse(localStorage.getItem('user')) == null ? (<Link to='/login' style={{ color: 'white', textDecoration: 'none' }} onClick={collpseMenu}>Login</Link>) : (<Link to='/logout' style={{ color: 'white', textDecoration: 'none' }}>Logout</Link>)
                                   }
                                               
                               </div>

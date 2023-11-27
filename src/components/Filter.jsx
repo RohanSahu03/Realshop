@@ -33,9 +33,34 @@ function Filter() {
   
   return (
    <>
+
+  <div className={style.outerlayer}>
+    <div className={style.group}>
+          <select className="form-select form-select-sm" aria-label=".form-select-sm example" onChange={handleSorting}>
+            <option value="default">Sort By:</option>
+            <option value="asc">Price(low to high)</option>
+            <option value="dsc">Price(high to low)</option>
+            <option value="az">Name(a-z)</option>
+            <option value="za">Name(z-a)</option>
+          </select>
+  
+          <button type="button" className="btn btn-light m-1" value="all" onClick={handleFilterChange}>All</button>
+          <button type="button" className="btn btn-light m-1" value="mobile" onClick={handleFilterChange}>Mobile</button>
+          <button type="button" className="btn btn-light m-1" value="headphone" onClick={handleFilterChange}>Headphone</button>
+          <button type="button" className="btn btn-light m-1" value="bag" onClick={handleFilterChange}>Bag</button>
+          <button type="button" className="btn btn-light m-1" value="tshirt" onClick={handleFilterChange}>T-shirt</button>
+         
+          
+    </div>
+
+  </div>
+
+
+
       <div className={` ${style.filterDiv} `}>
+      
           Sort Product
-        <select class="form-select form-select-sm" aria-label=".form-select-sm example" onChange={handleSorting}>
+        <select className="form-select form-select-sm" aria-label=".form-select-sm example" onChange={handleSorting}>
           <option value="default">Sort By:</option>
           <option value="asc">Price(low to high)</option>
           <option value="dsc">Price(high to low)</option>

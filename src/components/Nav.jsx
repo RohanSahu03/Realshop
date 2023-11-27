@@ -92,7 +92,7 @@ function Nav() {
                       </div>
 
                       <div className={style.categoryIcon}>
-                          <BiMenu style={{ float: 'right', fontSize: '25px',color:'white',marginLeft:'50px' }} onClick={showMenu} />
+                          <BiMenu style={{ float: 'right', fontSize: '33px',color:'white',marginLeft:'50px' }} onClick={showMenu} />
                       </div>
                   </div>
   
@@ -110,7 +110,7 @@ function Nav() {
                           <li>
                               <div className={style.login}>
                                   {
-                                      JSON.parse(localStorage.getItem('user')) == null ? (<Link to='/login' style={{ color: 'white', textDecoration: 'none' }} onClick={collpseMenu}>Login</Link>) : (<Link to='/logout' style={{ color: 'white', textDecoration: 'none' }}>Logout</Link>)
+                                      JSON.parse(localStorage.getItem('user')) == null ? (<Link to='/login' style={{ color: 'white', textDecoration: 'none' }} onClick={collpseMenu}>Login</Link>) : (<Link to='/logout' style={{ color: 'white', textDecoration: 'none' }} onClick={logout}>Logout</Link>)
                                   }
                                               
                               </div>

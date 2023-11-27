@@ -28,13 +28,7 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 }
-.tableHeading{
-    background-color:rosybrown;
-    color: white;
-    border-radius: 4px;
-    padding:4px 80px ;
-   
-}
+
 .priceDetails {
     display: flex;
     flex-direction: column;
@@ -72,6 +66,7 @@
     justify-content: center;
     width: 100%;
     flex-wrap: wrap;
+    border-bottom: 1px solid rgb(43, 41, 41);
 
 }
 .tableData>tbody>tr{
@@ -81,6 +76,7 @@
     flex-direction: row;
     width: 100%; 
     flex-wrap: wrap;
+   
 }
 .tableData>tbody>tr>td{
     width: 16%;
@@ -90,7 +86,7 @@
     flex-wrap: wrap; 
     text-decoration: none;
     font-size: 1.6vw;
-   
+   border: none;
 }
 
 .priceHead{
@@ -187,7 +183,9 @@
  margin-bottom: 10px;
  flex-wrap: nowrap;
 box-shadow: none;
-
+}
+.emptycart{
+    margin-top: 10px;
 }
 .verticalLine{
     display: none;

@@ -97,7 +97,7 @@ function Cart() {
     return (
         <div>
 
-            <h6>Cart<span>({cartItems.length})</span></h6>
+            <h6><span>{cartItems.length} </span> Products on your Cart</h6>
 
             <div className={`${style.main}`}>
                 <div className={`${style.innermain}`}>
@@ -137,7 +137,6 @@ function Cart() {
                                                     <td>
                                                     <div className="tableDatar">
                                                     
-                                                        {/* <CartAmountToggle stock={item.stock} id={item.id} dataFromChild={subTotalFromChild}/> */}
                                                         <div className="amountToggle" style={mystyle}>
                                                                 <button onClick={() => setDecrease(item.id)} style={mybtn}>-</button>
 
@@ -150,8 +149,6 @@ function Cart() {
                                                     <td>
                                                     <div className="tableDatar">
                                                    
-                                                        {/* <SubTotalCalculater quantity={item.quantity} price={item.price} /> */}
-                                                        {/* <BsCurrencyRupee />{} */}
                                                         {item.subtotal}
                                                   
                                                     </div>

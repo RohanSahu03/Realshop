@@ -3,7 +3,7 @@
     align-items: center;
     flex-direction: row;
     width: 100%;
-    height: 100vh;
+    height: 90vh;
 
 }
 .forDesign{
@@ -38,3 +38,17 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     outline: none;
 }
+
+ @media (max-width:560px) {
+  
+.innerContainer{
+    width: 70%;
+   
+}
+ }
+ @media (min-width:561px) and (max-width:900px){
+    .innerContainer {
+            width: 50%;
+    
+        }
+ }

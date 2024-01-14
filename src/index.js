@@ -12,9 +12,11 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <ProductProvider>
     <AmountToggleProvider>
+    
       <CartProvider>
         <App />
       </CartProvider>
+ 
     </AmountToggleProvider>
   </ProductProvider>
 );

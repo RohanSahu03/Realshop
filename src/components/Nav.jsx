@@ -44,7 +44,7 @@ function Nav() {
                   <div className={style.menu}>
                     <ToastContainer/>
                       <ol>
-                          <li><a href="">
+                          <li><a href="/">
                               <img className={style.logo} src={`real-shop.png`} alt="logo"  />
                           </a></li>
                          

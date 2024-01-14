@@ -6,7 +6,7 @@ export const ProductProvider = ({ children }) => {
 
     const [products, setProducts] = useState([]);
     const [filteredProducts,setFilteredProducts]=useState([])
-
+    let [isLoading,setIsLoading]=useState(false)
     const [searchTerm, setSearchTerm] = useState('');
     let filteredPrice=undefined
     const updateSearchTerm = (term) => {
@@ -75,20 +75,37 @@ export const ProductProvider = ({ children }) => {
         setFilteredProducts(products)
     }
 
-    const getData=()=>{
-        axios.get('https://realshop-product-api.onrender.com/product',{
-            headers:{
-                Accept:'application/json'
-            }
-        })
-            .then(resp => {
-                setProducts(resp.data)
-            })
-            .catch(err => console.log(err))
-     }
+    const getData = async ()=>{
+        try{
+            await axios.get('https://realshop-product-api.onrender.com/product', {
+                    headers:{
+                        Accept:'application/json'
+                    }
+                })
+                    .then(resp => {
+                        setProducts(resp.data)
+                    })
+                    setIsLoading(true)
+        }
+        catch(e){
+          console.log(e);
+        }
+    }
+
+    // const getData= ()=>{
+    //     axios.get('https://realshop-product-api.onrender.com/product',{
+    //         headers:{
+    //             Accept:'application/json'
+    //         }
+    //     })
+    //         .then(resp => {
+    //             setProducts(resp.data)
+    //         })
+    //         .catch(err => console.log(err))
+    //  }
  
     return (
-        <ProductContext.Provider value={{ products, filteredProducts, filterProducts, getData, filterByPrice, sortProducts, searchTerm, updateSearchTerm, maxPrice, clearFilter }}>
+        <ProductContext.Provider value={{ products, filteredProducts, filterProducts, getData, filterByPrice, sortProducts, searchTerm, updateSearchTerm, maxPrice, clearFilter,isLoading }}>
             {children}
         </ProductContext.Provider>
     );

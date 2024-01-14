@@ -8,12 +8,12 @@
     height: 450px;
     margin-top: 10px;
     margin-bottom: 10px;
-    z-index: -1;
+  
 }
 img{
     width: 80%;
     height: 450px;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 .carouselCaption{
     color: black;

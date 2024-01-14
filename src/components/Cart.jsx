@@ -1,31 +1,31 @@
 import React, { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { CartContext } from './context/CartContext'
-import { useContext, useState,useEffect } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import style from '../css/cart.module.css'
 import styled from '../css/nav.module.css'
-import { FaTrash} from 'react-icons/fa'
-import { Button, Modal, ModalHeader, ModalBody,Table } from 'reactstrap';
+import { FaTrash } from 'react-icons/fa'
+import { Button, Modal, ModalHeader, ModalBody, Table } from 'reactstrap';
 import { BsCurrencyRupee } from 'react-icons/bs'
 
 
 
 
 function Cart() {
-    const { cartItems, removeFromCart } = useContext(CartContext);
+    const { cartItems, removeFromCart, setIncrease,setDecrease } = useContext(CartContext);
 
     const [modal, setModal] = useState(false);
 
     const toggle = () => setModal(!modal);
-    let holderName =useRef()
+    let holderName = useRef()
     let cardNumber = useRef()
     let cvvNumber = useRef()
-  const handlePayment=()=>{
-      let holderName = holderName.current.value
-      let cardNumber = cardNumber.current.value
-      let cvvNumber = cvvNumber.current.value
-  }
- 
+    const handlePayment = () => {
+        let holderName = holderName.current.value
+        let cardNumber = cardNumber.current.value
+        let cvvNumber = cvvNumber.current.value
+    }
+
     const mystyle = {
         "display": "flex"
     }
@@ -48,41 +48,12 @@ function Cart() {
         borderBottom: "1px solid gray"
     }
     const btnStyle = {
-        color:"white",
+        color: "white",
         background: "blue",
-       
-    }
-  
-     const setDecrease = (itemId) => {
-      cartItems.map((item)=>{
-        if (item.id === itemId){
-            if (item.quantity > 1){
-              item.quantity = item.quantity - 1
-                item.subtotal = item.subtotal-item.price
-          }
-          else{
-                item.quantity=1
-          }
-        }
-      })
-  }
 
-    const setIncrease = (itemId) => {
-    
-        cartItems.map((item) => {
-            if (item.id === itemId) {
-                if (item.quantity < item.stock) {
-                   item.quantity= item.quantity + 1
-                   item.subtotal= item.quantity * item.price
-                  
-                }
-                else {
-                    item.quantity=item.stock
-                }
-
-            }
-        })
     }
+
+   
 
     const handleRemoveFromCart = (product) => {
         removeFromCart(product);
@@ -92,7 +63,7 @@ function Cart() {
         (accumulator, item) => accumulator + item.subtotal,
         0
     );
-    
+
 
     return (
         <div>
@@ -120,43 +91,43 @@ function Cart() {
                                             <tbody >
                                                 <tr >
                                                     <td>
-                                                    <div className="tableDatar">
-                                                   <img src={`../${item.image}`} alt="img" className={`${style.img}`} />
-                                                    </div>
+                                                        <div className="tableDatar">
+                                                            <img src={`../${item.image}`} alt="img" className={`${style.img}`} />
+                                                        </div>
                                                     </td>
                                                     <td>
-                                                    <div className="tableDatar">
-                                                    {item.title}
-                                                    </div>
+                                                        <div className="tableDatar">
+                                                            {item.title}
+                                                        </div>
                                                     </td>
                                                     <td>
-                                                    <div className="tableDatar">
-                                                    <BsCurrencyRupee/>{item.price}
-                                                    </div>
+                                                        <div className="tableDatar">
+                                                            <BsCurrencyRupee />{item.price}
+                                                        </div>
                                                     </td>
                                                     <td>
-                                                    <div className="tableDatar">
-                                                    
-                                                        <div className="amountToggle" style={mystyle}>
+                                                        <div className="tableDatar">
+
+                                                            <div className="amountToggle" style={mystyle}>
                                                                 <button onClick={() => setDecrease(item.id)} style={mybtn}>-</button>
 
-                                                            <div style={{ marginLeft: '10px', marginRight: '10px' }}>{item.quantity}</div>
-                                                            <button onClick={() => setIncrease(item.id)} style={mybtn}>+</button>
+                                                                <div style={{ marginLeft: '10px', marginRight: '10px' }}>{item.quantity}</div>
+                                                                <button onClick={() => setIncrease(item.id)} style={mybtn}>+</button>
+                                                            </div>
+
                                                         </div>
-                                                  
-                                                    </div>
                                                     </td>
                                                     <td>
-                                                    <div className="tableDatar">
-                                                   
-                                                        {item.subtotal}
-                                                  
-                                                    </div>
+                                                        <div className="tableDatar">
+
+                                                            {item.subtotal}
+
+                                                        </div>
                                                     </td>
                                                     <td onClick={() => handleRemoveFromCart(item)}>
-                                                    <div className="tableData1">
-                                                    <FaTrash />
-                                                    </div>
+                                                        <div className="tableData1">
+                                                            <FaTrash />
+                                                        </div>
                                                     </td>
                                                 </tr>
 
@@ -182,7 +153,7 @@ function Cart() {
                                             <tbody>
                                                 <tr>
                                                     <td>Total Product Price</td>
-                                                    <td><BsCurrencyRupee/>{totalPrice}                                                     
+                                                    <td><BsCurrencyRupee />{totalPrice}
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -193,16 +164,16 @@ function Cart() {
 
                                                 <tr>
                                                     <td><b>Order Total</b></td>
-                                                    <td><b><BsCurrencyRupee/>{totalPrice}</b></td>
+                                                    <td><b><BsCurrencyRupee />{totalPrice}</b></td>
 
                                                 </tr>
 
                                             </tbody>
                                         </table>
-                                     
-                                                <div className={`${style.buybtn}`} onClick={toggle}>
-                                                    <b>Buy</b>
-                                                </div>
+
+                                        <div className={`${style.buybtn}`} onClick={toggle}>
+                                            <b>Buy</b>
+                                        </div>
                                         <Modal isOpen={modal} toggle={toggle} className={styled.model} >
                                             <ModalHeader toggle={toggle} className={styled.modelHeader}> Payment </ModalHeader>
                                             <ModalBody className={styled.modelBody}>
@@ -211,7 +182,7 @@ function Cart() {
                                                     <thead >
                                                         <tr>
                                                             <th>
-                                                               Enter Card Details
+                                                                Enter Card Details
                                                             </th>
 
                                                         </tr>
@@ -234,9 +205,9 @@ function Cart() {
                                                                 Make Payment
                                                             </Button>
                                                         </tr>
-<br />
+                                                        <br />
                                                     </tbody>
-                                                    </Table>
+                                                </Table>
                                             </ModalBody>
 
                                         </Modal>
